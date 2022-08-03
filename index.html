@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="Králik Vidor Levente">
+	<title>Králik CV</title>
+	<style>
+		:root{
+			--primary-color: cornflowerblue;
+			--secondary-color: lightcyan;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 3.8mm;
+			text-align: justify;
+			--print-margin:2cm;
+		}
+		body{
+			background-color: lightgray;
+		}
+		hr{
+			width:80%;
+			color: var(--secondary-color);
+		}
+		.page {
+			position: relative;
+			width: clamp(400px, calc(210mm - 2 * var(--print-margin)), 210mm);
+			/*aspect-ratio: 210/297;*/
+			height: calc(297mm - 2 * var(--print-margin));
+			background-color: #FFF;
+			padding: 3rem;
+			box-shadow: 0.5rem -0.5rem gray;
+			border-style: solid;
+			border-color: gray;
+			border-width: 0.2rem;
+			align-content: center;
+			margin-bottom: 2rem;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.page>h1{
+			color: var(--primary-color);
+			margin: 0;
+		}
+		.footer{
+			position: absolute;
+			bottom: 3em;
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			width:calc(100% - 6rem);
+		}
+		.cols{
+			display:grid;
+			grid-template-columns: 30% auto;
+			column-gap: 2em;
+		}
+		article{
+			margin: 1em;
+
+		}
+		article.box{
+			border-radius: 25px;
+			border: 2px solid var(--primary-color);
+			box-shadow: 0.3em -0.3em #5552;
+			padding: 15px;
+		}
+		.fillBox{
+			background-color: var(--secondary-color) !important;
+		}
+		article>p{
+			margin:0.2em;
+			margin-left: 1em;
+		}
+		article>header{
+			font-size: 120%;
+		}
+		article.dates{
+			display:grid;
+			grid-template-columns: 8em auto;
+		}
+		article.hide_desc{
+			display: flex;
+			position: relative;
+			flex-direction: column;
+			align-items: center;
+		}
+		article.hide_desc>div{
+			width: 100%;
+			padding-left: 1em;
+			transition-duration: 800ms;
+			border-radius: 15px;
+			border: 2px solid var(--primary-color);
+			min-height: 4em;
+			margin-top: -2em;
+			background-color: white;
+			box-shadow: 0.3em -0.3em #5552;
+		}
+		article.hide_desc>div:first-of-type{
+			margin-top: 1em;
+		}
+		article.hide_desc>div>p{
+			display: none;
+			margin-top: 0;
+			margin-bottom: 0;
+			padding-left: 2em;
+		}
+		article.hide_desc>div:hover{
+			width: 120%;
+			border-radius: 15px;
+			border: 2px solid var(--primary-color);
+			z-index: 10;
+			transform: translateY(-1em);
+			display: block;
+		}
+		article.hide_desc>div:hover>p{
+			display: block;
+		}
+		article.hide_desc>div:hover~div{
+			transform: translateY(1.5em);
+		}
+		ul{
+			list-style-type: none;
+			padding-left: 2em;
+		}
+		@media screen and (max-width: 650px) {
+			.page{
+				width: 90%;
+				height: auto;
+			}
+			.cols{
+				grid-template-columns: 100%;
+			}
+		}
+		@media print
+		{    
+			.no-print, .no-print *
+			{
+				display: none !important;
+			}
+			.page{
+				box-shadow: none;
+				/*border: none;*/
+				padding:1rem;
+				margin:0rem;
+				page-break-after: always;
+			}
+
+		}
+	</style>
+</head>
+<body>
+	<!--
+	<p class="no-print">Teszt --- <a href="javascript:if(window.print)window.print()">Print (to PDF)</a></p>
+	-->
+	<div class="page">
+		<h1>Králik Vidor Levente</h1>
+		<section class="cols">
+			<div>
+				<article class="box">
+					<Header>
+						Elérhetőségek:
+					</Header>
+					<p>kralikvi@gmail.com</p>
+					<p>+3620/3831542</p>
+				</article>
+				<article class="hide_desc">
+					<header>Programozási ismeretek</header>
+					<div>
+						<header>Assembly</header>
+						<p>Első programozási nyelvem.</p>
+						<p>PIC mikrovezérlők utasítás készletét tanultam.</p>
+						<p>PIC perifériák széles körű ismerete.</p>
+						<p>Készítettem saját könyvtárat grafikus kijelzőhöz, saját betű készlettel.</p>
+					</div>
+					<div>
+						<header>C</header>
+						<p>5 éve programozok ebben a nyelvben, főként mikrovezérlőket.</p>
+						<p>Több nagyobb projektet készítettem, például 2017-es vizes vb záróeseményére készült csodaszarvas fényjátékát programoztam.</p>
+					</div>
+					<div>
+						<header>C++</header>
+						<p>Pár éve kezdtem el használni pár kisebb projekthez.</p>
+						<p>Szakdolgozat projektemet is most ebben írom. </p>
+					</div>
+					<div>
+						<header>C#</header>
+						<p>Pár GUI-s program Visual Studio-ban</p>
+						<p>Unity-val "fizikai szimulációkat" készítettem</p>
+					</div>
+					<div>
+						<header>Bash</header>
+						<p>Alap szinten, egy két automatizálást írtam magamnak Linux alá.</p>
+					</div>
+					<div>
+						<header>php, MySQL</header>
+						<p>ElektroCare-nél honlapra jó pár funkciót és lekérdezést írtam.</p>
+					</div>
+					<div>
+						<header>HTML, CSS</header>
+						<p>Ezt az önéletrajzot is így csináltam, csak HTML és CSS-el.</p>
+					</div>
+					<div class="fillBox no-print">
+						<header style="text-align: center; display: block; padding-top: 1.5em;">
+							A kurzort hozd a kártyákra!
+						</p>
+					</div>
+				</article>
+			</div>
+			<div>
+				<p>Jelenleg szakdolgozatomat írom Vizuális kétfaktoros hitelesítés járműves beléptető rendszerhez címmel, Raspberry Pi-re írok C++-ban rendszámtábla és arc felismerő szoftvert.<br>
+					Szabadidőmben elektronikát tervezek és mikrovezérlőket programozok. Szeretem megtervezni és összerakni az áramköröket, nagy gyakorlattal rendelkezem hardveres és szoftveres hibakeresésben.
+					</p>
+				<article class="dates">
+					<header>
+						Tanulmányok:
+					</header><div></div>
+					<p>2013-</p>
+					<p>Óbudai Egyetem
+						Bánki Donát Gépész és Biztonságtechnikai Mérnöki Kar<br>
+						Mechatronikai mérnök szak
+					</p>
+					<p>2009-2013</p>
+					<p>Mechatronikai Szakközépiskola<br> 
+						Elektronikai képzés
+					</p>
+				</article>
+				<article class="box">
+					<header>Főbb eredmények</header>
+					<p>
+						2011 és 2012-ben Országos mikrovezérlő-alkalmazói szakmai tanulmányi versenyen Assembly kategóriában elért II. helyezés
+					</p>
+					<p>
+						2012 és 2013-ban Országos Konstruktőri versenyen való részvétel
+					</p>
+					<p>
+						2016-os Bosch gokart versenyen A Hatékony gokart kategória első helye egyetemi csapattal
+					</p>
+				</article>
+				<article class="dates">
+					<header>Munkahelyek</header><div></div>
+					<p>2021-2022</p><p>Főállású apuka (GYED)</p>
+					<p>2015-2021</p><p>ElektroCare System Kft.
+					elektronikák tervezése, építése és webes fejlesztések
+					</p>
+					<p>2013-2015</p><p>Pentolt Kft.-nél gyakornok</p>
+					
+				</article>
+				<article class="box">
+					<header>Szakmai ismeretek</header>
+					<p>Több mint 12 éven kezdtem mikrovezérlőt programozni Assembly és C nyelven, az MPLAB X nevű fejlesztő környezettel, a Microchip termékei közül a 18F-es családdal foglalkoztam részletesebben.</p>
+					<p>Áramkör és NYÁK tervezés (Eagle)</p>
+					<p>3D modellezés, elsősorban 3D nyomtatáshoz (Inventor)</p>
+					<p>Elektronikai hiba keresés és visszafejtés</p>
+					<p>Van tapasztalatom 3D nyomtatókkal, CNC-vel. Alap G-kódok ismerete.</p>
+				</article>
+			</div>
+		</section>
+		<div class="footer">
+			<div>kralikvi@gmail.com</div>
+			<div style="text-align: center;">Králik Vidor Levente</div>
+			<div style="text-align: right;">Maglód, 2022.08.01.</div>
+		</div>
+	</div>
+	<div class="page">
+		<article>
+			<header>Készségek</header>
+			<p>Rendszerszemlélet, analitikus gondolkodás</p>
+			<p>Jó tervező és problémamegoldó készség</p>
+			<p>Kitartás, monotónia tűrés</p>
+			<p>Önálló munkavégzés</p>
+		</article>
+		<article>
+			<header>Nyelvtudás</header>
+			<p>angol középfokú nyelvvizsga</p>
+			<p>német alapszintű</p>
+		</article>
+		<article>
+			<header>Ismeretek:</header>
+				<p>Linux, Rasberry Pi</p>
+				<p>Arduino</p>
+				<p>Magas szintű office ismeretek (Word, Excel, Access, VBA-Macro)</p>
+				<p>AutoCAD, Visual Studio, Unity, MathCAD, MATLAB ismerete</p>
+				<p>Gépírás</p>
+		</article>
+		<div class="footer">
+			<div>kralikvi@gmail.com</div>
+			<div style="text-align: center;">Králik Vidor Levente</div>
+			<div style="text-align: right;">Maglód, 2022.08.01.</div>
+		</div>
+	</div>
+</body>
+</html>

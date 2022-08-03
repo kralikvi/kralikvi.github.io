@@ -78,13 +78,14 @@
 			display:grid;
 			grid-template-columns: 8em auto;
 		}
-		article.hide_desc{
+		article.cards{
 			display: flex;
 			position: relative;
 			flex-direction: column;
 			align-items: center;
+			text-align: left;
 		}
-		article.hide_desc>div{
+		article.cards>div{
 			width: 100%;
 			padding-left: 1em;
 			transition-duration: 800ms;
@@ -95,27 +96,27 @@
 			background-color: white;
 			box-shadow: 0.3em -0.3em #5552;
 		}
-		article.hide_desc>div:first-of-type{
+		article.cards>div:first-of-type{
 			margin-top: 1em;
 		}
-		article.hide_desc>div>p{
+		article.cards>div>p{
 			display: none;
 			margin-top: 0;
 			margin-bottom: 0;
 			padding-left: 2em;
 		}
-		article.hide_desc>div:hover{
-			width: 120%;
+		article.cards>div:hover{
+			width: 150%;
 			border-radius: 15px;
 			border: 2px solid var(--primary-color);
 			z-index: 10;
 			transform: translateY(-1em);
 			display: block;
 		}
-		article.hide_desc>div:hover>p{
+		article.cards>div:hover>p{
 			display: block;
 		}
-		article.hide_desc>div:hover~div{
+		article.cards>div:hover~div{
 			transform: translateY(1.5em);
 		}
 		ul{
@@ -163,7 +164,7 @@
 					<p>kralikvi@gmail.com</p>
 					<p>+3620/3831542</p>
 				</article>
-				<article class="hide_desc">
+				<article class="cards">
 					<header>Programozási ismeretek</header>
 					<div>
 						<header>Assembly</header>

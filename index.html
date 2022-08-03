@@ -14,6 +14,7 @@
 			font-size: 3.8mm;
 			text-align: justify;
 			--print-margin:2cm;
+			--f_date:"2022.08.03."
 		}
 		body{
 			background-color: lightgray;
@@ -122,6 +123,9 @@
 		ul{
 			list-style-type: none;
 			padding-left: 2em;
+		}
+		.footer_date::after{
+			content: var(--f_date);
 		}
 		@media screen and (max-width: 650px) {
 			.page{
@@ -248,7 +252,7 @@
 				</article>
 				<article class="box">
 					<header>Szakmai ismeretek</header>
-					<p>Több mint 12 éven kezdtem mikrovezérlőt programozni Assembly és C nyelven, az MPLAB X nevű fejlesztő környezettel, a Microchip termékei közül a 18F-es családdal foglalkoztam részletesebben.</p>
+					<p>Több mint 12 éve programozok mikrovezérlőket, Assembly-ben és C-ben</p>
 					<p>Áramkör és NYÁK tervezés (Eagle)</p>
 					<p>3D modellezés, elsősorban 3D nyomtatáshoz (Inventor)</p>
 					<p>Elektronikai hiba keresés és visszafejtés</p>
@@ -259,7 +263,7 @@
 		<div class="footer">
 			<div>kralikvi@gmail.com</div>
 			<div style="text-align: center;">Králik Vidor Levente</div>
-			<div style="text-align: right;">Maglód, 2022.08.01.</div>
+			<div class="footer_date" style="text-align: right;">Maglód, </div>
 		</div>
 	</div>
 	<div class="page">

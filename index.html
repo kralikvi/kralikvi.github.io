@@ -73,7 +73,8 @@
 		}
 		article>p{
 			margin:0.2em;
-			margin-left: 1em;
+			margin-left: 2em;
+			text-indent: -1em;
 		}
 		article>header{
 			font-size: 120%;
@@ -81,6 +82,9 @@
 		article.dates{
 			display:grid;
 			grid-template-columns: 8em auto;
+		}
+		article.list>p::before{
+			content: "";
 		}
 		article.cards{
 			display: flex;
@@ -108,6 +112,7 @@
 			margin-top: 0;
 			margin-bottom: 0;
 			padding-left: 2em;
+			text-indent: -1em;
 		}
 		article.cards>div:hover{
 			width: 140%;
@@ -122,10 +127,6 @@
 		}
 		article.cards>div:hover~div{
 			transform: translateY(1.5em);
-		}
-		ul{
-			list-style-type: none;
-			padding-left: 2em;
 		}
 		@media screen and (max-width: 650px) {
 			.page{
@@ -216,7 +217,7 @@
 						<p>Alap szinten, egy két automatizálást írtam magamnak Linux alá.</p>
 					</div>
 					<div>
-						<header>php, MySQL</header>
+						<header>PHP, MySQL</header>
 						<p>ElektroCare-nél honlapra jó pár funkciót és lekérdezést írtam.</p>
 					</div>
 					<div>
@@ -231,12 +232,12 @@
 				</article>
 			</div>
 			<div>
-				<p>Jelenleg szakdolgozatomat írom Vizuális kétfaktoros hitelesítés járműves beléptető rendszerhez címmel, Raspberry Pi-re írok C++-ban rendszámtábla és arc felismerő szoftvert.<br>
+				<p>Jelenleg szakdolgozatomat írom "Vizuális kétfaktoros hitelesítés járműves beléptető rendszerhez" címmel, Raspberry Pi-re írok C++-ban rendszámtábla és arc felismerő szoftvert.<br>
 					Szabadidőmben elektronikát tervezek és mikrovezérlőket programozok. Szeretem megtervezni és összerakni az áramköröket, nagy gyakorlattal rendelkezem hardveres és szoftveres hibakeresésben.
 					</p>
 				<article class="dates">
 					<header>
-						Tanulmányok:
+						Tanulmányok
 					</header><div></div>
 					<p>2013-</p>
 					<p>Óbudai Egyetem
@@ -257,7 +258,7 @@
 						2012 és 2013-ban Országos Konstruktőri versenyen való részvétel
 					</p>
 					<p>
-						2016-os Bosch gokart versenyen A Hatékony gokart kategória első helye egyetemi csapattal
+						2016-os Bosch gokart versenyen "A Hatékony gokart" kategória első helye egyetemi csapattal
 					</p>
 				</article>
 				<article class="dates">
@@ -269,7 +270,7 @@
 					<p>2013-2015</p><p>Pentolt Kft.-nél gyakornok</p>
 					
 				</article>
-				<article class="box">
+				<article class="box list">
 					<header>Szakmai ismeretek</header>
 					<p>Több mint 12 éve programozok mikrovezérlőket, Assembly-ben és C-ben</p>
 					<p>Áramkör és NYÁK tervezés (Eagle)</p>
@@ -295,7 +296,7 @@
 		</article>
 		<article>
 			<header>Nyelvtudás</header>
-			<p>angol középfokú nyelvvizsga</p>
+			<p>Angol középfokú nyelvvizsga</p>
 		</article>
 		<article>
 			<header>Ismeretek:</header>

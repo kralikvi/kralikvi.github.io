@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="hu">
+<html>
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,274 +9,227 @@
 	<style>
 		:root{
 			--primary-color: cornflowerblue;
-			--secondary-color: lightcyan;
+			/*--secondary-color: cornflowerblue;*/
 			font-family: Arial, Helvetica, sans-serif;
 			font-size: 3.8mm;
 			text-align: justify;
 			--print-margin:2cm;
-			--f_date:"2022.08.03."
+			--f_date:"2022.08.23."
 		}
-		body{
-			background-color: lightgray;
-		}
-		hr{
-			width:80%;
-			color: var(--secondary-color);
-		}
-		.page {
-			position: relative;
-			width: clamp(400px, calc(210mm - 2 * var(--print-margin)), 210mm);
-			/*aspect-ratio: 210/297;*/
-			height: calc(297mm - 2 * var(--print-margin));
-			background-color: #FFF;
-			padding: 3rem;
-			box-shadow: 0.5rem -0.5rem gray;
-			border-style: solid;
-			border-color: gray;
-			border-width: 0.2rem;
-			align-content: center;
-			margin-bottom: 2rem;
-			margin-left: auto;
-			margin-right: auto;
-		}
-		.page>h1{
-			color: var(--primary-color);
-			margin: 0;
-		}
-		.footer{
-			position: absolute;
-			bottom: 2em;
-			display: grid;
-			grid-template-columns: 1fr 1fr 1fr;
-			width:calc(100% - 6rem);
-		}
-		.footer_date::after{
-			content: var(--f_date);
-		}
-		.cols{
-			display:grid;
-			grid-template-columns: 30% auto;
-			column-gap: 2em;
-		}
-		article{
-			margin: 1em;
-
-		}
-		article.box{
-			border-radius: 25px;
-			border: 2px solid var(--primary-color);
-			box-shadow: 0.3em -0.3em #5552;
-			padding: 15px;
-		}
-		.fillBox{
-			background-color: var(--secondary-color) !important;
-		}
-		article>p{
-			margin:0.2em;
-			margin-left: 2em;
-			text-indent: -1em;
-		}
-		article>header{
-			font-size: 120%;
-		}
-		article.dates{
-			display:grid;
-			grid-template-columns: 8em auto;
-		}
-		article.list>p::before{
-			content: "";
-		}
-		article.cards{
-			display: flex;
-			position: relative;
-			flex-direction: column;
-			align-items: center;
-			text-align: left;
-		}
-		article.cards>div{
-			width: 100%;
-			padding-left: 1em;
-			transition-duration: 800ms;
-			border-radius: 15px;
-			border: 2px solid var(--primary-color);
-			min-height: 4em;
-			margin-top: -2em;
-			background-color: white;
-			box-shadow: 0.3em -0.3em #5552;
-		}
-		article.cards>div:first-of-type{
-			margin-top: 1em;
-		}
-		article.cards>div>p{
-			display: none;
-			margin-top: 0;
-			margin-bottom: 0;
-			padding-left: 2em;
-			text-indent: -1em;
-		}
-		article.cards>div:hover{
-			width: 140%;
-			border-radius: 15px;
-			border: 2px solid var(--primary-color);
-			z-index: 10;
-			transform: translateY(-1em);
-			display: block;
-		}
-		article.cards>div:hover>p{
-			display: block;
-		}
-		article.cards>div:hover~div{
-			transform: translateY(1.5em);
-		}
-		@media screen and (max-width: 650px) {
-			.page{
-				width: 90%;
-				height: auto;
-			}
-			.cols{
-				grid-template-columns: 100%;
-			}
-			 
-			.no-mobile, .no-mobile *
-			{
-				display: none !important;
-			}
-			article.cards>div:hover{
-				width: 100%;
-
-				transform: translateY(0em);
-			}
-			article.cards>div:hover~div{
-				transform: translateY(0em);
-			}
-			article.cards>div>p{
-				display: block;
-			}
-			article.cards>div{
-				margin-top: 0em;
-			}
-		}
-		@media print
-		{    
+		@media print{    
 			.no-print, .no-print *
 			{
 				display: none !important;
 			}
-			.page{
-				box-shadow: none;
-				border: none;
-				padding:1rem;
-				margin:0rem;
-				page-break-after: always;
-			}
-
 		}
 	</style>
+	<link rel="stylesheet" href="style.css" />
+	<link rel="stylesheet" href="navbar.css" />
+	<script src="changeLanguage.js"></script>
+	<script>
+		function changeColor(){
+			var newColor = document.getElementById("customColor").value;
+			document.documentElement.style.setProperty('--primary-color',newColor);
+			
+		}
+	</script>
+	<style id="TranslateStyle">
+		*:lang(en){
+			display: none !important;
+		}
+	</style>
+
 </head>
 <body>
-	<!--
-	<p class="no-print">Teszt --- <a href="javascript:if(window.print)window.print()">Print (to PDF)</a></p>
-	-->
+	<nav class="navbar no-print">
+		<ul>
+			<!--<li>
+				Email
+			</li>
+			<li>
+				Projektek
+			</li>-->
+			<li>
+				<a href="javascript:if(window.print)window.print()">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M448 192H64C28.65 192 0 220.7 0 256v96c0 17.67 14.33 32 32 32h32v96c0 17.67 14.33 32 32 32h320c17.67 0 32-14.33 32-32v-96h32c17.67 0 32-14.33 32-32V256C512 220.7 483.3 192 448 192zM384 448H128v-96h256V448zM432 296c-13.25 0-24-10.75-24-24c0-13.27 10.75-24 24-24s24 10.73 24 24C456 285.3 445.3 296 432 296zM128 64h229.5L384 90.51V160h64V77.25c0-8.484-3.375-16.62-9.375-22.62l-45.25-45.25C387.4 3.375 379.2 0 370.8 0H96C78.34 0 64 14.33 64 32v128h64V64z"/></svg><!--
+					--><span lang="hu">Nyomtatás</span><!--
+					--><span lang="en">Print</span>
+				</a>
+			</li>
+			<li lang="hu">
+				<a href="./pdfs/KralikVidorLeventeCV_HUN.pdf" download>
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M256 0v128h128L256 0zM224 128L224 0H48C21.49 0 0 21.49 0 48v416C0 490.5 21.49 512 48 512h288c26.51 0 48-21.49 48-48V160h-127.1C238.3 160 224 145.7 224 128zM272 416h-160C103.2 416 96 408.8 96 400C96 391.2 103.2 384 112 384h160c8.836 0 16 7.162 16 16C288 408.8 280.8 416 272 416zM272 352h-160C103.2 352 96 344.8 96 336C96 327.2 103.2 320 112 320h160c8.836 0 16 7.162 16 16C288 344.8 280.8 352 272 352zM288 272C288 280.8 280.8 288 272 288h-160C103.2 288 96 280.8 96 272C96 263.2 103.2 256 112 256h160C280.8 256 288 263.2 288 272z"/></svg><!--
+					--><span>PDF mentése</span>
+				</a>
+			</li>
+			<li lang="en">
+				<a href="./pdfs/KralikVidorLeventeCV_ENG.pdf" download>
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M256 0v128h128L256 0zM224 128L224 0H48C21.49 0 0 21.49 0 48v416C0 490.5 21.49 512 48 512h288c26.51 0 48-21.49 48-48V160h-127.1C238.3 160 224 145.7 224 128zM272 416h-160C103.2 416 96 408.8 96 400C96 391.2 103.2 384 112 384h160c8.836 0 16 7.162 16 16C288 408.8 280.8 416 272 416zM272 352h-160C103.2 352 96 344.8 96 336C96 327.2 103.2 320 112 320h160c8.836 0 16 7.162 16 16C288 344.8 280.8 352 272 352zM288 272C288 280.8 280.8 288 272 288h-160C103.2 288 96 280.8 96 272C96 263.2 103.2 256 112 256h160C280.8 256 288 263.2 288 272z"/></svg><!--
+					--><span>Save as PDF</span>
+				</a>
+			</li>
+			<li lang="en">
+				<a href="javascript:changeLang('hu');">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M448 164C459 164 468 172.1 468 184V188H528C539 188 548 196.1 548 208C548 219 539 228 528 228H526L524.4 232.5C515.5 256.1 501.9 279.1 484.7 297.9C485.6 298.4 486.5 298.1 487.4 299.5L506.3 310.8C515.8 316.5 518.8 328.8 513.1 338.3C507.5 347.8 495.2 350.8 485.7 345.1L466.8 333.8C462.4 331.1 457.1 328.3 453.7 325.3C443.2 332.8 431.8 339.3 419.8 344.7L416.1 346.3C406 350.8 394.2 346.2 389.7 336.1C385.2 326 389.8 314.2 399.9 309.7L403.5 308.1C409.9 305.2 416.1 301.1 422 298.3L409.9 286.1C402 278.3 402 265.7 409.9 257.9C417.7 250 430.3 250 438.1 257.9L452.7 272.4L453.3 272.1C465.7 259.9 475.8 244.7 483.1 227.1H376C364.1 227.1 356 219 356 207.1C356 196.1 364.1 187.1 376 187.1H428V183.1C428 172.1 436.1 163.1 448 163.1L448 164zM160 233.2L179 276H140.1L160 233.2zM0 128C0 92.65 28.65 64 64 64H576C611.3 64 640 92.65 640 128V384C640 419.3 611.3 448 576 448H64C28.65 448 0 419.3 0 384V128zM320 384H576V128H320V384zM178.3 175.9C175.1 168.7 167.9 164 160 164C152.1 164 144.9 168.7 141.7 175.9L77.72 319.9C73.24 329.1 77.78 341.8 87.88 346.3C97.97 350.8 109.8 346.2 114.3 336.1L123.2 315.1H196.8L205.7 336.1C210.2 346.2 222 350.8 232.1 346.3C242.2 341.8 246.8 329.1 242.3 319.9L178.3 175.9z"/></svg><!--
+					--><span>Magyar</span>
+				</a>
+			</li>
+			<li lang="hu">
+				<a href="javascript:changeLang('en');">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M448 164C459 164 468 172.1 468 184V188H528C539 188 548 196.1 548 208C548 219 539 228 528 228H526L524.4 232.5C515.5 256.1 501.9 279.1 484.7 297.9C485.6 298.4 486.5 298.1 487.4 299.5L506.3 310.8C515.8 316.5 518.8 328.8 513.1 338.3C507.5 347.8 495.2 350.8 485.7 345.1L466.8 333.8C462.4 331.1 457.1 328.3 453.7 325.3C443.2 332.8 431.8 339.3 419.8 344.7L416.1 346.3C406 350.8 394.2 346.2 389.7 336.1C385.2 326 389.8 314.2 399.9 309.7L403.5 308.1C409.9 305.2 416.1 301.1 422 298.3L409.9 286.1C402 278.3 402 265.7 409.9 257.9C417.7 250 430.3 250 438.1 257.9L452.7 272.4L453.3 272.1C465.7 259.9 475.8 244.7 483.1 227.1H376C364.1 227.1 356 219 356 207.1C356 196.1 364.1 187.1 376 187.1H428V183.1C428 172.1 436.1 163.1 448 163.1L448 164zM160 233.2L179 276H140.1L160 233.2zM0 128C0 92.65 28.65 64 64 64H576C611.3 64 640 92.65 640 128V384C640 419.3 611.3 448 576 448H64C28.65 448 0 419.3 0 384V128zM320 384H576V128H320V384zM178.3 175.9C175.1 168.7 167.9 164 160 164C152.1 164 144.9 168.7 141.7 175.9L77.72 319.9C73.24 329.1 77.78 341.8 87.88 346.3C97.97 350.8 109.8 346.2 114.3 336.1L123.2 315.1H196.8L205.7 336.1C210.2 346.2 222 350.8 232.1 346.3C242.2 341.8 246.8 329.1 242.3 319.9L178.3 175.9z"/></svg><!--
+					--><span>English</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M512 255.1C512 256.9 511.1 257.8 511.1 258.7C511.6 295.2 478.4 319.1 441.9 319.1H344C317.5 319.1 296 341.5 296 368C296 371.4 296.4 374.7 297 377.9C299.2 388.1 303.5 397.1 307.9 407.8C313.9 421.6 320 435.3 320 449.8C320 481.7 298.4 510.5 266.6 511.8C263.1 511.9 259.5 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256V255.1zM96 255.1C78.33 255.1 64 270.3 64 287.1C64 305.7 78.33 319.1 96 319.1C113.7 319.1 128 305.7 128 287.1C128 270.3 113.7 255.1 96 255.1zM128 191.1C145.7 191.1 160 177.7 160 159.1C160 142.3 145.7 127.1 128 127.1C110.3 127.1 96 142.3 96 159.1C96 177.7 110.3 191.1 128 191.1zM256 63.1C238.3 63.1 224 78.33 224 95.1C224 113.7 238.3 127.1 256 127.1C273.7 127.1 288 113.7 288 95.1C288 78.33 273.7 63.1 256 63.1zM384 191.1C401.7 191.1 416 177.7 416 159.1C416 142.3 401.7 127.1 384 127.1C366.3 127.1 352 142.3 352 159.1C352 177.7 366.3 191.1 384 191.1z"/></svg><!--
+					--><span lang="hu">Szín</span><!--
+					--><span lang="en">Color</span><!--
+					--><input type="color" id="customColor" value="#6495ED" autocomplete="off" onchange="changeColor();">
+				</a>
+			</li>
+		</ul>
+	</nav>
 	<div class="page">
 		<h1>Králik Vidor Levente</h1>
 		<section class="cols">
 			<div>
 				<article class="box">
-					<Header>
-						Elérhetőségek:
-					</Header>
-					<p>kralikvi@gmail.com</p>
-					<p>+3620/3831542</p>
+					<Header lang="hu">Elérhetőségek</Header>
+					<header lang="en">Contacts</header>
+					<p><a href="mailto:kralikvi@gmail.com">kralikvi@gmail.com</a></p>
+					<p><a href="tel:+36203831542">+3620/3831542</a></p>
 				</article>
 				<article class="cards">
-					<header>Programozási ismeretek</header>
+					<header lang="hu">Programozási ismeretek</header>
+					<header lang="en">Programming skills</header>
 					<div>
 						<header>Assembly</header>
-						<p>Első programozási nyelvem.</p>
-						<p>PIC mikrovezérlők utasítás készletét tanultam.</p>
-						<p>PIC perifériák széles körű ismerete.</p>
-						<p>Készítettem saját könyvtárat grafikus kijelzőhöz, saját betű készlettel.</p>
+						<p lang="hu">Első programozási nyelvem.</p>
+						<p lang="en">My first programming language.</p>
+						<p lang="hu">PIC mikrovezérlők utasítás készletét tanultam.</p>
+						<p lang="en">I learned the PIC microcontrollers instruction set.</p>
+						<p lang="hu">PIC perifériák széles körű ismerete.</p>
+						<p lang="en">Extensive knowledge of PIC peripherals.</p>
+						<p lang="hu">Készítettem saját könyvtárat grafikus kijelzőhöz, saját betű készlettel.</p>
+						<p lang="en">I made my own library for graphic display, with my own set of fonts.</p>
 					</div>
 					<div>
 						<header>C</header>
-						<p>5 éve programozok ebben a nyelvben, főként mikrovezérlőket.</p>
-						<p>Több nagyobb projektet készítettem, például 2017-es vizes vb záróeseményére készült csodaszarvas fényjátékát programoztam.</p>
+						<p lang="hu">5 éve programozok ebben a nyelvben, főként mikrovezérlőket.</p>
+						<p lang="en">I have been programming in this language for 5 years, mainly microcontrollers.</p>
+						<p lang="hu">Több nagyobb projektet készítettem, például 2017-es vizes vb záróeseményére készült csodaszarvas fényjátékát programoztam.</p>
+						<p lang="en">I created several larger projects, for example, I programmed the light show of the miraculous deer for the final event of the 2017 Water World Cup.</p>
 					</div>
 					<div>
 						<header>C++</header>
-						<p>Pár éve kezdtem el használni pár kisebb projekthez.</p>
-						<p>Szakdolgozat projektemet is most ebben írom. </p>
+						<p lang="hu">Pár éve kezdtem el használni pár kisebb projekthez.</p>
+						<p lang="en">I started using it a few years ago for a few small projects.</p>
+						<p lang="hu">Szakdolgozat projektemet is most ebben írom. </p>
+						<p lang="en">I am also writing my thesis project in this right now.</p>
 					</div>
 					<div>
 						<header>C#</header>
-						<p>Pár GUI-s program Visual Studio-ban</p>
-						<p>Unity-val "fizikai szimulációkat" készítettem</p>
+						<p lang="hu">Pár GUI-s program Visual Studio-ban.</p>
+						<p lang="en">A couple of GUI programs in Visual Studio.</p>
+						<p lang="hu">Unity-val <q>fizikai szimulációkat</q> készítettem</p>
+						<p lang="en">I made "physics simulations" with Unity</p>
 					</div>
 					<div>
 						<header>Bash</header>
-						<p>Alap szinten, egy két automatizálást írtam magamnak Linux alá.</p>
+						<p lang="hu">Alap szinten, egy-két automatizálást írtam magamnak Linux alá.</p>
+						<p lang="en">At a basic level, I wrote a couple of automations for myself under Linux.</p>
 					</div>
 					<div>
 						<header>PHP, MySQL</header>
-						<p>ElektroCare-nél honlapra jó pár funkciót és lekérdezést írtam.</p>
+						<p lang="hu">ElektroCare-nél honlapra jó pár funkciót és lekérdezést írtam.</p>
+						<p lang="en">At ElektroCare, I wrote quite a few functions and queries for the website.</p>
 					</div>
-					<div>
+					<!--<div>
 						<header>HTML, CSS</header>
-						<p>Ezt az önéletrajzot is így csináltam, csak HTML és CSS-el.</p>
-					</div>
+						<p lang="hu">Ezt az önéletrajzot is így csináltam, HTML és CSS-el.</p>
+						<p lang="en">I made this resume the same way, only with HTML and CSS.</p>
+					</div>-->
 					<div class="fillBox no-print no-mobile">
-						<header style="text-align: center; display: block; padding-top: 1.5em;">
-							A kurzort hozd a kártyákra!
-						</p>
+						<header style="text-align: center; display: block; padding-top: 1em;">
+							<span lang="hu">A kurzort hozd a kártyákra!</span>
+							<span lang="en">Bring the cursor to the cards!</span>
+						</header>
+
 					</div>
 				</article>
 			</div>
 			<div>
-				<p>Jelenleg szakdolgozatomat írom "Vizuális kétfaktoros hitelesítés járműves beléptető rendszerhez" címmel, Raspberry Pi-re írok C++-ban rendszámtábla és arc felismerő szoftvert.<br>
+				<p lang="hu">
+					Jelenleg szakdolgozatomat írom <q>Vizuális kétfaktoros hitelesítés járműves beléptető rendszerhez</q> címmel, Raspberry Pi-re írok C++-ban rendszámtábla és arc felismerő szoftvert.<br>
 					Szabadidőmben elektronikát tervezek és mikrovezérlőket programozok. Szeretem megtervezni és összerakni az áramköröket, nagy gyakorlattal rendelkezem hardveres és szoftveres hibakeresésben.
-					</p>
+				</p>
+				<p lang="en">
+					I am currently writing my thesis entitled "Visual two-factor authentication for vehicle access control system", I am writing license plate and face recognition software in C++ on Raspberry Pi.<br>
+					In my spare time I design electronics and program microcontrollers. I like to design and assemble circuits, I have a lot of experience in hardware and software debugging.
+				</p>
 				<article class="dates">
-					<header>
-						Tanulmányok
-					</header><div></div>
+					<header lang="hu">Tanulmányok</header>
+					<header lang="en">Education</header>
+					<div></div>
 					<p>2013-</p>
-					<p>Óbudai Egyetem
+					<p lang="hu">
+						Óbudai Egyetem
 						Bánki Donát Gépész és Biztonságtechnikai Mérnöki Kar<br>
 						Mechatronikai mérnök szak
 					</p>
+					<p lang="en">
+						University of Óbuda Donát Bánki Faculty of Mechanical and Safety Engineering<br>
+						Mechatronics engineering
+					</p>
 					<p>2009-2013</p>
-					<p>Mechatronikai Szakközépiskola<br> 
+					<p lang="hu">
+						Mechatronikai Szakközépiskola<br> 
 						Elektronikai képzés
 					</p>
+					<p lang="en">
+						Mechatronics Vocational Secondary School<br>
+						Electronics training</p>
 				</article>
 				<article class="box">
-					<header>Főbb eredmények</header>
-					<p>
-						2011 és 2012-ben Országos mikrovezérlő-alkalmazói szakmai tanulmányi versenyen Assembly kategóriában elért II. helyezés
-					</p>
-					<p>
-						2012 és 2013-ban Országos Konstruktőri versenyen való részvétel
-					</p>
-					<p>
-						2016-os Bosch gokart versenyen "A Hatékony gokart" kategória első helye egyetemi csapattal
-					</p>
+					<header lang="hu">Főbb eredmények</header>
+					<header lang="en">Main results</header>
+					<p lang="hu">2011 és 2012-ben Országos mikrovezérlő-alkalmazói szakmai tanulmányi versenyen Assembly kategóriában elért II. helyezés</p>
+					<p lang="en">In 2011 and 2012, I achieved II. place in the Assembly category at the National Microcontroller User Professional Study Competition.</p>
+					<p lang="hu">2012 és 2013-ban Országos Konstruktőri versenyen való részvétel</p>
+					<p lang="en">Participation in the National Construction Competition in 2012 and 2013</p>
+					<p lang="hu">2016-os Bosch gokart versenyen <q>A Hatékony gokart</q> kategória első helye egyetemi csapattal</p>
+					<p lang="en">In the 2016 Bosch go-kart competition, first place in the "Efficient go-kart" category with a university team</p>
 				</article>
 				<article class="dates">
-					<header>Munkahelyek</header><div></div>
-					<p>2021-2022</p><p>Főállású apuka (GYED)</p>
-					<p>2015-2021</p><p>ElektroCare System Kft.
-					elektronikák tervezése, építése és webes fejlesztések
-					</p>
-					<p>2013-2015</p><p>Pentolt Kft.-nél gyakornok</p>
+					<header lang="hu">Munkahelyek</header>
+					<header lang="en">Previous jobs</header>
+					<div></div>
+					<p>2021-2022</p>
+					<p lang="hu">Főállású apuka (GYED)</p>
+					<p lang="en">Full-time dad</p>
 					
+					<p>2015-2021</p>
+					<p lang="hu">ElektroCare System Kft. elektronikák tervezése, építése és webes fejlesztések</p>
+					<p lang="en">ElektroCare System Kft. electronics design, construction and web development</p>
+					
+					<p>2013-2015</p>
+					<p lang="hu">Pentolt Kft.-nél gyakornok</p>
+					<p lang="en">Trainee at Pentolt Kft</p>
 				</article>
 				<article class="box list">
-					<header>Szakmai ismeretek</header>
-					<p>Több mint 12 éve programozok mikrovezérlőket, Assembly-ben és C-ben</p>
-					<p>Áramkör és NYÁK tervezés (Eagle)</p>
-					<p>3D modellezés, elsősorban 3D nyomtatáshoz (Inventor)</p>
-					<p>Elektronikai hiba keresés és visszafejtés</p>
-					<p>Van tapasztalatom 3D nyomtatókkal, CNC-vel. Alap G-kódok ismerete.</p>
+					<header lang="hu">Szakmai készségek</header>
+					<header lang="en">Professional skills</header>
+					<p lang="hu">Több mint 12 éve programozok mikrovezérlőket, Assembly-ben és C-ben</p>
+					<p lang="en">I have been programming microcontrollers in Assembly and C for more than 12 years</p>
+					<p lang="hu">Áramkör és NYÁK tervezés (Eagle)</p>
+					<p lang="en">Circuit and PCB design (Eagle)</p>
+					<p lang="hu">3D modellezés, elsősorban 3D nyomtatáshoz</p>
+					<p lang="en">3D modeling, primarily for 3D printing</p>
+					<p lang="hu">Elektronikai hiba keresés és visszafejtés</p>
+					<p lang="en">Electronic fault finding and reverse engineering</p>
+					<p lang="hu">Van tapasztalatom 3D nyomtatókkal, CNC-vel. Alap G-kódok ismerete.</p>
+					<p lang="en">I have experience with 3D printers and CNC. Knowledge of basic G-codes.</p>
 				</article>
 			</div>
 		</section>
@@ -288,24 +241,35 @@
 	</div>
 	<div class="page">
 		<article>
-			<header>Készségek</header>
-			<p>Rendszerszemlélet, analitikus gondolkodás</p>
-			<p>Jó tervező és problémamegoldó készség</p>
-			<p>Kitartás, monotónia tűrés</p>
-			<p>Önálló munkavégzés</p>
+			<header lang="hu">Készségek</header>
+			<header lang="en">Skills</header>
+			<p lang="hu">Rendszerszemlélet, analitikus gondolkodás</p>
+			<p lang="en">Systems approach, analytical thinking</p>
+			<p lang="hu">Jó tervező és problémamegoldó készség</p>
+			<p lang="en">Good planning and problem solving skills</p>
+			<p lang="hu">Kitartás, monotónia tűrés</p>
+			<p lang="en">Endurance, tolerance of monotony</p>
+			<p lang="hu">Önálló munkavégzés</p>
+			<p lang="en">Independent work</p>
 		</article>
 		<article>
-			<header>Nyelvtudás</header>
-			<p>Angol középfokú nyelvvizsga</p>
+			<header lang="hu">Nyelvtudás</header>
+			<header lang="en">Language skills</header>
+			<p lang="hu">Angol középfokú nyelvvizsga</p>
+			<p lang="en">Intermediate English language exam</p>
 		</article>
 		<article>
-			<header>Ismeretek:</header>
-				<p>Linux, Rasberry Pi</p>
-				<p>OpenCV, Tesseract</p>
-				<p>Arduino</p>
-				<p>Magas szintű Office ismeretek (Word, Excel, Access, VBA-Macro)</p>
-				<p>AutoCAD, Visual Studio, Unity, MathCAD, MATLAB ismerete</p>
-				<p>Gépírás</p>
+			<header lang="hu">Ismeretek</header>
+			<header lang="en">Knowledges</header>
+			<p>Linux, Rasberry Pi</p>
+			<p>OpenCV, Tesseract</p>
+			<p>Arduino</p>
+			<p lang="hu">Magas szintű Office ismeretek (Word, Excel, Access, VBA-Macro)</p>
+			<p lang="en">High level of Office knowledge (Word, Excel, Access, VBA-Macro)</p>
+			<p lang="hu">AutoCAD, Visual Studio, Unity, MathCAD, MATLAB ismerete</p>
+			<p lang="en">Knowledge of AutoCAD, Visual Studio, Unity, MathCAD, MATLAB</p>
+			<p lang="hu">Gépírás</p>
+			<p lang="en">Touch typing</p>
 		</article>
 		<div class="footer">
 			<div>kralikvi@gmail.com</div>

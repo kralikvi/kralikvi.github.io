@@ -50,6 +50,15 @@ article.box{
 	box-shadow: 0.3em -0.3em #5552;
 	padding: 15px;
 }
+article.ID_pic{
+	overflow: hidden;
+	padding: 0;
+	aspect-ratio: 35/45;
+	max-height: 20rem;
+}
+article.ID_pic img{
+	width: 100%;
+}
 .fillBox{
 	background-color: var(--primary-color) !important;
 }
